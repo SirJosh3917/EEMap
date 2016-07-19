@@ -15,8 +15,7 @@ Simple add in the DLL to your project, and you'll see a new control appear
 in your toolbox, called an "EEMap". Simply drag this onto your form
 anywhere you'd like. Now you have an EEMap, ready for usage!
 
-## Guidelines - Are there any variables or stuff I have to do before this is
-	              functional for me?
+## Guidelines - Are there any variables or stuff I have to do before this is functional for me?
 
 Yes, all you need to do is initialize the map, and have two int variables,
 one should be the RenderX, and one should be the RenderY. This is the
