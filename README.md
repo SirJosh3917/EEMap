@@ -29,15 +29,15 @@ map, and will be very important for proper usage.
 
 Before everything begins, you need to make sure you're using EEMap:
 
-'''
+```
 using EEWorldMap;
-'''
+```
 
 Next, you need to paste in this line of code after the form is loaded:
 
-'''
+```
 Block.GetBlockImage(1);
-'''
+```
 
 This line of code will initialize the BlockArray so the EEMap can easily get
 a bitmap of any block ID at any time. Dont worry, this line of code applies
@@ -71,12 +71,12 @@ event.
 
 Now, paste in this code into the event:
 
-'''
+```
 int BlockLayer = 0;
 int BlockID = 9;
 eeMap1 = e.PlaceOnMap(BlockLayer, RenderX, RenderY, BlockID);
 eeMap1.RenderBlockPlace(RenderX, RenderY, e.BlockX, e.BlockY);
-'''
+```
 
 What this code does, is tells the BlockDrawArgs to place a block where the
 EEMap was clicked on, and then renders the block placement. But make sure
