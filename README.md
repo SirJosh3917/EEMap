@@ -14,6 +14,12 @@ https://www.nuget.org/packages/EEWorldMap/
 Download via .zip file:
 https://www.mediafire.com/?4yv3cmlhghcxr61
 
+# What the github source code version has but the current download does not:
+-Web block requests, to fetch blocks from the web. Does not need initializing, and makes everything faster
+-Web block renders, uses the web block requests to render an image without need of a 45 second wait.
+
+Planned update for the release with features specified above: In 5 days ( Monday, July 24, 2016 )
+
 # EEMap Documentation
 
 ## Introduction - What is EEMap?
