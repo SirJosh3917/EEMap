@@ -84,7 +84,7 @@ Now, paste in this code into the event:
 
 ```
 int BlockLayer = 0;
-int BlockID = 9;
+uint BlockID = 9;
 eeMap1 = e.PlaceOnMap(BlockLayer, RenderX, RenderY, BlockID);
 eeMap1.RenderBlockPlace(RenderX, RenderY, e.BlockX, e.BlockY);
 ```
