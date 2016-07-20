@@ -1,6 +1,18 @@
 # EEMap
 Create maps that look like a world in EE with ease, programically!
 
+# Download
+
+Requires .NET Framework 3.0+
+
+Download via nuget:
+```
+PM> Install-Package EEWorldMap
+```
+
+Download via .zip file:
+https://www.mediafire.com/?4yv3cmlhghcxr61
+
 # EEMap Documentation
 
 ## Introduction - What is EEMap?
