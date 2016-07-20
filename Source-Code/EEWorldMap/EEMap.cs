@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -151,7 +151,7 @@ namespace EEWorldMap
 				for (int y = 0; y < (base.Size.Height - (base.Size.Height % 16) / 16); y++)
 					if (!(xUpperLeft + x >= ArrayManager.maps[key].GetLength(1) || yUpperLeft + y >= ArrayManager.maps[key].GetLength(2)))
 						if (xUpperLeft + x < 0 || yUpperLeft + y < 0)
-							Block.Overlap(img, Block.voidImg, x * 16, y * 16);
+							Block.Overlap(img, Block.emptyBitmap, x * 16, y * 16);
 						else
 						{
 							Block.Overlap(img, Block.GetBlockImage(Convert.ToInt32(ArrayManager.maps[key][1, x + xUpperLeft, y + yUpperLeft])), x * 16, y * 16);
@@ -159,7 +159,7 @@ namespace EEWorldMap
 								Block.Overlap(img, Block.GetBlockImage(Convert.ToInt32(ArrayManager.maps[key][0, x + xUpperLeft, y + yUpperLeft])), x * 16, y * 16);
 						}
 					else
-						Block.Overlap(img, Block.voidImg, x * 16, y * 16);
+						Block.Overlap(img, Block.emptyBitmap, x * 16, y * 16);
 			base.BackgroundImage = img;
 		}
 
@@ -178,6 +178,50 @@ namespace EEWorldMap
 				over = Block.Overlap(over, Block.GetBlockImage(Convert.ToInt32(ArrayManager.maps[key][0, blockX + xUpperLeft, blockY + yUpperLeft])), 0, 0);
 			base.BackgroundImage = Block.Overlap(new Bitmap(base.BackgroundImage), over, (blockX) * 16, (blockY) * 16);
 		}
+
+		#region Web Render
+
+		/// <summary>
+		/// Does the same as Render() but uses web block requests to grab the latest and greatest blocks.
+		/// </summary>
+		/// <param name="xUpperLeft">The upper-left corner X position of the block to render on.</param>
+		/// <param name="yUpperLeft">The upper-left corner Y position of the block to render on.</param>
+		public void RenderUsingWeb(int xUpperLeft, int yUpperLeft)
+		{
+			Bitmap img = new Bitmap((base.Size.Width - (base.Size.Width % 16) / 16), (base.Size.Height - (base.Size.Width % 16) / 16));
+			for (int x = 0; x < (base.Size.Width - (base.Size.Width % 16) / 16); x++)
+				for (int y = 0; y < (base.Size.Height - (base.Size.Height % 16) / 16); y++)
+					if (!(xUpperLeft + x >= ArrayManager.maps[key].GetLength(1) || yUpperLeft + y >= ArrayManager.maps[key].GetLength(2)))
+						if (xUpperLeft + x < 0 || yUpperLeft + y < 0)
+							Block.Overlap(img, Block.emptyBitmap, x * 16, y * 16);
+						else
+						{
+							Block.Overlap(img, Block.GetBlockImageFromWeb(Convert.ToInt32(ArrayManager.maps[key][1, x + xUpperLeft, y + yUpperLeft])), x * 16, y * 16);
+							if (ArrayManager.maps[key][0, x + xUpperLeft, y + yUpperLeft] != 0)
+								Block.Overlap(img, Block.GetBlockImageFromWeb(Convert.ToInt32(ArrayManager.maps[key][0, x + xUpperLeft, y + yUpperLeft])), x * 16, y * 16);
+						}
+					else
+						Block.Overlap(img, Block.emptyBitmap, x * 16, y * 16);
+			base.BackgroundImage = img;
+		}
+
+		/// <summary>
+		/// Does the same as RenderBlockPlace() but uses web block requests to grab the latest and greatest blocks.
+		/// </summary>
+		/// <param name="xUpperLeft">The upper-left corner X position of the block to render on.</param>
+		/// <param name="yUpperLeft">The upper-left corner Y position of the block to render on.</param>
+		/// <param name="blockX">The X position of the block to render.</param>
+		/// <param name="blockY">The Y position of the block to render.</param>
+		public void RenderBlockPlaceUsingWeb(int xUpperLeft, int yUpperLeft, int blockX, int blockY)
+		{
+			Bitmap over = new Bitmap(16, 16);
+			over = Block.Overlap(over, Block.GetBlockImageFromWeb(Convert.ToInt32(ArrayManager.maps[key][1, blockX + xUpperLeft, blockY + yUpperLeft])), 0, 0);
+			if (ArrayManager.maps[key][0, blockX + xUpperLeft, blockY + yUpperLeft] != 0)
+				over = Block.Overlap(over, Block.GetBlockImageFromWeb(Convert.ToInt32(ArrayManager.maps[key][0, blockX + xUpperLeft, blockY + yUpperLeft])), 0, 0);
+			base.BackgroundImage = Block.Overlap(new Bitmap(base.BackgroundImage), over, (blockX) * 16, (blockY) * 16);
+		}
+
+		#endregion
 
 		#endregion
 
