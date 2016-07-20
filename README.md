@@ -9,6 +9,7 @@ Download via nuget:
 ```
 PM> Install-Package EEWorldMap
 ```
+https://www.nuget.org/packages/EEWorldMap/
 
 Download via .zip file:
 https://www.mediafire.com/?4yv3cmlhghcxr61
@@ -53,6 +54,10 @@ Block.GetBlockImage(1);
 This line of code will initialize the BlockArray so the EEMap can easily get
 a bitmap of any block ID at any time. Dont worry, this line of code applies
 for all EEMaps, and only has to be written once.
+
+Next, in your toolbox, right click on "All Windows Controls" and click "Choose
+Items". Then, hit "Browse" and find EEWorldMap.dll so you can add the EEMap
+control to your toolbox.
 
 #### Step 2: Choosing it's size
 
