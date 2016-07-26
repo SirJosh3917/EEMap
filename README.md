@@ -18,7 +18,7 @@ https://www.mediafire.com/?4yv3cmlhghcxr61
 -Web block requests, to fetch blocks from the web. Does not need initializing, and makes everything faster
 -Web block renders, uses the web block requests to render an image without need of a 45 second wait.
 
-Planned update for the release with features specified above: In 5 days ( Monday, July 24, 2016 )
+Planned update for the release with features specified above: [ BUILDING RIGHT NOW... ]
 
 # EEMap Documentation
 
