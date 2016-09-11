@@ -45,7 +45,10 @@ namespace EEWorldMap
 
 			try
 			{
-				using (WebClient client = new WebClient())
+				using (WebClient client = new WebClient()
+				{
+					Proxy = null
+				})
 				{
 					byte[] blockBytes = client.DownloadData("https://raw.githubusercontent.com/EEJesse/EEBlocks/master/Bricks/b" + id + ".png");
 					Bitmap blockBitmap = (Bitmap)Image.FromStream(new MemoryStream(blockBytes));
