@@ -3,7 +3,7 @@ Create maps that look like a world in EE with ease, programically!
 
 # Download
 
-Requires .NET Framework 3.0+
+Requires .NET Framework 2.0+
 
 Download via nuget:
 ```
@@ -15,10 +15,7 @@ Download via .zip file:
 https://www.mediafire.com/?4yv3cmlhghcxr61
 
 # What the github source code version has but the current download does not:
--Web block requests, to fetch blocks from the web. Does not need initializing, and makes everything faster
--Web block renders, uses the web block requests to render an image without need of a 45 second wait.
-
-Planned update for the release with features specified above: [ BUILDING RIGHT NOW... ]
+-Nothing :D
 
 # EEMap Documentation
 
